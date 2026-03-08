@@ -1,8 +1,8 @@
-import { pgTable, uuid, text, timestamp } from "drizzle-orm/pg-core";
+import { pgTable, uuid, text, timestamp, pgEnum } from "drizzle-orm/pg-core";
 import { relations } from "drizzle-orm";
 
 export const users = pgTable("users", {
-  id: uuid().primaryKey(),
+  id: uuid().primaryKey().defaultRandom(),
   name: text().notNull(),
   email: text().unique().notNull(),
   password: text().notNull(),
@@ -12,7 +12,7 @@ export const users = pgTable("users", {
 });
 
 export const projects = pgTable("projects", {
-  id: uuid().primaryKey(),
+  id: uuid().primaryKey().defaultRandom(),
   title: text().notNull(),
   description: text().notNull(),
   userId: uuid()
@@ -22,8 +22,14 @@ export const projects = pgTable("projects", {
   updatedAt: timestamp().notNull().defaultNow(),
 });
 
+export const statusEnum = pgEnum("status", [
+  "not_assigned",
+  "in_progress",
+  "done",
+]);
+
 export const tasks = pgTable("tasks", {
-  id: uuid().primaryKey(),
+  id: uuid().primaryKey().defaultRandom(),
   title: text().notNull(),
   description: text().notNull(),
   projectId: uuid()
@@ -32,7 +38,7 @@ export const tasks = pgTable("tasks", {
   userId: uuid()
     .notNull()
     .references(() => users.id),
-  status: text({ enum: ["not_assigned", "in_progress", "done"] }).notNull(),
+  status: statusEnum().notNull().default("not_assigned"),
   createdAt: timestamp().notNull().defaultNow(),
   updatedAt: timestamp().notNull().defaultNow(),
 });
