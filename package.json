@@ -1,7 +1,13 @@
 {
   "name": "taskflows_learn",
   "scripts": {
-    "dev": "bun run --hot src/index.ts"
+    "dev": "bun run --hot src/index.ts",
+    "db:generate": "bunx drizzle-kit generate",
+    "db:migrate": "bunx drizzle-kit migrate",
+    "db:push": "bunx drizzle-kit push",
+    "db:studio": "bunx drizzle-kit studio",
+    "env:check": "bun -e 'import \"./src/env.ts\"'",
+    "db:ping": "bun -e \"import { db } from './src/db'; await db.execute('SELECT 1'); console.log('Pinged!')\""
   },
   "dependencies": {
     "@t3-oss/env-core": "^0.13.10",
