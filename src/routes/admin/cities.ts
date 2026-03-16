@@ -11,13 +11,17 @@ const CitySchema = z.object({
 
 export const citiesRoutes = new OpenAPIHono();
 
+const CitiesResponseSchema = z.object({
+  data: z.array(CitySchema),
+});
+
 // 2. Define the "Contract" for the GET request
 const listCitiesRoute = createRoute({
   method: "get",
   path: "/",
   responses: {
     200: {
-      content: { "application/json": { schema: z.array(CitySchema) } },
+      content: { "application/json": { schema: CitiesResponseSchema } },
       description: "Retrieve all cities",
     },
   },
