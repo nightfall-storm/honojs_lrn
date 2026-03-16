@@ -1,7 +1,5 @@
-import { Hono } from "hono";
+import { OpenAPIHono } from "@hono/zod-openapi";
+import { citiesRoutes } from "./cities";
 
-export const adminRoutes = new Hono();
-
-adminRoutes.get("/", (c) => {
-  return c.json({ message: "Admin API" });
-});
+// This nests the cities routes under /api/admin/cities
+export const adminRoutes = new OpenAPIHono().route("/cities", citiesRoutes);
