@@ -1,5 +1,5 @@
 import { OpenAPIHono } from "@hono/zod-openapi";
-import { Scalar } from "@scalar/hono-api-reference"; // Capital 'S'
+import { Scalar } from "@scalar/hono-api-reference";
 import { adminRoutes } from "./routes/admin";
 import { recruiterRoutes } from "./routes/recruiter";
 import { candidateRoutes } from "./routes/candidate";
