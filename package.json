@@ -15,6 +15,7 @@
     "@t3-oss/env-core": "^0.13.10",
     "dotenv": "^17.3.1",
     "drizzle-orm": "^0.45.1",
+    "drizzle-zod": "^0.8.3",
     "hono": "^4.12.5",
     "postgres": "^3.4.8",
     "zod": "^4.3.6"
