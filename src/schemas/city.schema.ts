@@ -1,5 +1,5 @@
 import { createInsertSchema, createSelectSchema } from "drizzle-zod";
-import { cities } from "../db/schema";
+import { cities } from "@/db/schema";
 import { z } from "zod";
 
 // 1. Generate the base schema from the DB table

@@ -1,6 +1,6 @@
 import { OpenAPIHono, createRoute, z } from "@hono/zod-openapi";
-import { cityService } from "../../services/admin/city.service";
-import { selectCitySchema } from "../../schemas/city.schema";
+import { cityService } from "@/services/admin/city.service";
+import { selectCitySchema } from "@/schemas/city.schema";
 
 export const citiesRoutes = new OpenAPIHono();
 

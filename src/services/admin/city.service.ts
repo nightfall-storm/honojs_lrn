@@ -1,5 +1,5 @@
-import { db } from "../../db";
-import { cities } from "../../db/schema";
+import { db } from "@/db";
+import { cities } from "@/db/schema";
 
 export const cityService = {
   // Fetch everything from the cities table
